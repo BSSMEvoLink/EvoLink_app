@@ -197,16 +197,7 @@ class _MyHomeState extends State<MyHome> {
               Positioned(
                 left: 47,
                 top: 110,
-                child: Container(
-                  width: 300,
-                  height: 300,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage("https://placehold.co/300x300"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                child: Container(width: 300, height: 300),
               ),
               Positioned(
                 left: 102,
