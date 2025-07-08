@@ -50,7 +50,7 @@ class _MainloginState extends State<Mainlogin> {
                   ),
                 ),
                 Positioned(
-                  left: 78,
+                  left: 70,
                   top: 255,
                   child: SizedBox(
                     width: 40,
@@ -68,7 +68,7 @@ class _MainloginState extends State<Mainlogin> {
                   ),
                 ),
                 Positioned(
-                  left: 201.08,
+                  left: 195,
                   top: 255,
                   child: SizedBox(
                     width: 40,
@@ -86,7 +86,7 @@ class _MainloginState extends State<Mainlogin> {
                   ),
                 ),
                 Positioned(
-                  left: 320,
+                  left: 300,
                   top: 255,
                   child: SizedBox(
                     width: 40,
@@ -104,6 +104,7 @@ class _MainloginState extends State<Mainlogin> {
                   ),
                 ),
                 Positioned(
+                  //체크박스
                   left: 42,
                   top: 362,
                   child: Container(

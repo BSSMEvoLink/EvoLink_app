@@ -29,6 +29,7 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/images/Evolinklogo.png
+     - assets/images/check_circle.jpg
 
   # 폰트 설정 (Pretendard 폰트)
   fonts:
