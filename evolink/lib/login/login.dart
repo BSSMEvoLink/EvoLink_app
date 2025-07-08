@@ -1,3 +1,4 @@
+import 'package:evolink/user/mainlogin.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -160,6 +161,59 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ],
+                ),
+              ),
+              Positioned(
+                left: 102,
+                top: 716,
+                child: SizedBox(
+                  width: 116,
+                  height: 20,
+                  child: Text(
+                    '아직 회원이 아니시라면',
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: const Color(0xFF7F7F7F),
+                      fontSize: 12,
+                      fontFamily: 'Pretnedard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 225,
+                top: 716,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    print('회원가입하기 클릭');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          print('LoginJoin 페이지로 이동');
+                          return const Mainlogin();
+                        },
+                      ),
+                    );
+                  },
+                  child: SizedBox(
+                    width: 63,
+                    height: 20,
+                    child: Text(
+                      '회원가입하기',
+                      style: TextStyle(
+                        decoration: TextDecoration.none,
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w500,
+                        height: 1.50,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
