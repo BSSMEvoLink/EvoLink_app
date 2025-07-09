@@ -18,6 +18,7 @@ class _MainloginState extends State<Mainlogin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.white),
+
       body: Stack(
         children: [
           Container(
@@ -134,7 +135,6 @@ class _MainloginState extends State<Mainlogin> {
                     ),
                   ),
                 ),
-
                 // 체크박스: 개인
                 Positioned(
                   left: 155,

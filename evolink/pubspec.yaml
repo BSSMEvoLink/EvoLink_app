@@ -32,6 +32,8 @@ flutter:
     - assets/images/
     - assets/images/Evolinklogo.png
     - assets/images/check_circle.svg
+    - assets/images/keyboard_arrow_down.svg
+    
 
   # 폰트 설정 (Pretendard 폰트)
   fonts:
