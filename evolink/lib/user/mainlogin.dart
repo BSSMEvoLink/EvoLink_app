@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Mainlogin extends StatefulWidget {
   const Mainlogin({super.key});
@@ -8,6 +9,8 @@ class Mainlogin extends StatefulWidget {
 }
 
 class _MainloginState extends State<Mainlogin> {
+  int selectedType = -1; // 0 = 기업, 1 = 개인, 2 = 지자체
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +21,10 @@ class _MainloginState extends State<Mainlogin> {
             width: 393,
             height: 852,
             clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: Stack(
               children: [
-                Positioned(
+                const Positioned(
                   left: 30,
                   top: 0,
                   child: Text(
@@ -35,7 +38,7 @@ class _MainloginState extends State<Mainlogin> {
                     ),
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   left: 42,
                   top: 211,
                   child: Text(
@@ -49,7 +52,9 @@ class _MainloginState extends State<Mainlogin> {
                     ),
                   ),
                 ),
-                Positioned(
+
+                // 텍스트들
+                const Positioned(
                   left: 70,
                   top: 255,
                   child: SizedBox(
@@ -67,8 +72,8 @@ class _MainloginState extends State<Mainlogin> {
                     ),
                   ),
                 ),
-                Positioned(
-                  left: 195,
+                const Positioned(
+                  left: 185,
                   top: 255,
                   child: SizedBox(
                     width: 40,
@@ -85,7 +90,7 @@ class _MainloginState extends State<Mainlogin> {
                     ),
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   left: 300,
                   top: 255,
                   child: SizedBox(
@@ -103,14 +108,101 @@ class _MainloginState extends State<Mainlogin> {
                     ),
                   ),
                 ),
+
+                // 체크박스: 기업
                 Positioned(
-                  //체크박스
-                  left: 42,
-                  top: 362,
+                  left: 40,
+                  top: 255,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedType = 0;
+                      });
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/check_circle.svg',
+                      width: 24,
+                      height: 24,
+                      fit: BoxFit.cover,
+                      color:
+                          selectedType == 0
+                              ? const Color(0xFFFC7B03)
+                              : Colors.black,
+                    ),
+                  ),
+                ),
+
+                // 체크박스: 개인
+                Positioned(
+                  left: 155,
+                  top: 255,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedType = 1;
+                      });
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/check_circle.svg',
+                      width: 24,
+                      height: 24,
+                      fit: BoxFit.cover,
+                      color:
+                          selectedType == 1
+                              ? const Color(0xFFFC7B03)
+                              : Colors.black,
+                    ),
+                  ),
+                ),
+
+                // 체크박스: 지자체
+                Positioned(
+                  left: 270,
+                  top: 255,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedType = 2;
+                      });
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/check_circle.svg',
+                      width: 24,
+                      height: 24,
+                      fit: BoxFit.cover,
+                      color:
+                          selectedType == 2
+                              ? const Color(0xFFFC7B03)
+                              : Colors.black,
+                    ),
+                  ),
+                ),
+
+                // 다음 버튼
+                Positioned(
+                  left: 33,
+                  top: 600,
                   child: Container(
-                    width: 24,
-                    height: 24,
-                    decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
+                    width: 328,
+                    height: 50,
+                    decoration: ShapeDecoration(
+                      color: const Color(0xFFFFAC1E),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        '다음',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_svg: ^2.0.7
+
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
@@ -29,7 +31,7 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/images/Evolinklogo.png
-     - assets/images/check_circle.jpg
+    - assets/images/check_circle.svg
 
   # 폰트 설정 (Pretendard 폰트)
   fonts:
