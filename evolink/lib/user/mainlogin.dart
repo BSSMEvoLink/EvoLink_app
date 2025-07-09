@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:evolink/user/freelancer.dart';
+import 'package:evolink/user/Corporation.dart';
+import 'package:evolink/user/localgovernment.dart';
 
 class Mainlogin extends StatefulWidget {
   const Mainlogin({super.key});
@@ -177,29 +180,58 @@ class _MainloginState extends State<Mainlogin> {
                     ),
                   ),
                 ),
-
                 // 다음 버튼
                 Positioned(
                   left: 33,
                   top: 600,
-                  child: Container(
-                    width: 328,
-                    height: 50,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFFFFAC1E),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
+                  child: GestureDetector(
+                    onTap: () {
+                      if (selectedType == 0) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CorporationJoin(),
+                          ),
+                        );
+                      } else if (selectedType == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FreelancerJoin(),
+                          ),
+                        );
+                      } else if (selectedType == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LocalgovernmentJoin(),
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('가입 유형을 선택해주세요')),
+                        );
+                      }
+                    },
+                    child: Container(
+                      width: 328,
+                      height: 50,
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFFFAC1E),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
                       ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        '다음',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          height: 1.50,
+                      child: const Center(
+                        child: Text(
+                          '다음',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
+                            height: 1.50,
+                          ),
                         ),
                       ),
                     ),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class CorporationJoin extends StatefulWidget {
+  const CorporationJoin({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<CorporationJoin> createState() => _CorporationJoinState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _CorporationJoinState extends State<CorporationJoin> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
