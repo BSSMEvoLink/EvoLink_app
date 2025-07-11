@@ -1327,259 +1327,260 @@ class _CorporationJoinState extends State<CorporationJoin> {
 }
 
 Widget _buildStep4() {
-  return Column(
-    children: [
-      Container(
-        width: 393,
-        height: 852,
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(color: Colors.white),
-        child: Stack(
-          children: [
-            Positioned(
-              left: 30,
-              top: 81,
-              child: Text(
-                '회원가입',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
+  return SingleChildScrollView(
+    child: Container(
+      width: 393,
+      height: 852,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(color: Colors.white),
+      child: Stack(
+        children: [
+          Positioned(
+            left: 30,
+            top: 10,
+            child: Text(
+              '회원가입',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
               ),
             ),
-            Positioned(
-              left: 32,
-              top: 698,
-              child: Container(
-                width: 328,
-                height: 50,
-                clipBehavior: Clip.antiAlias,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFFAC1E),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
-                  ),
+          ),
+          Positioned(
+            left: 32,
+            top: 600,
+            child: Container(
+              width: 328,
+              height: 50,
+              clipBehavior: Clip.antiAlias,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFFFAC1E),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6),
                 ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: 134,
-                      top: 15,
-                      child: Text(
-                        '로그인하기',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          height: 1.50,
-                        ),
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 134,
+                    top: 15,
+                    child: Text(
+                      '로그인하기',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w500,
+                        height: 1.50,
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              left: 105,
-              top: 85,
-              child: Container(
-                width: 77,
-                height: 15,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFC7B03),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(3),
                   ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            left: 105,
+            top: 14.5,
+            child: Container(
+              width: 77,
+              height: 15,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFFC7B03),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(3),
                 ),
               ),
             ),
-            Positioned(
-              left: 189,
-              top: 85,
-              child: Container(
-                width: 76,
-                height: 15,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFC7B03),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
+          ),
+          Positioned(
+            left: 189,
+            top: 14.5,
+            child: Container(
+              width: 76,
+              height: 15,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFFC7B03),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(3),
                 ),
               ),
             ),
-            Positioned(
-              left: 272,
-              top: 85,
-              child: Container(
-                width: 77,
-                height: 15,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFC7B03),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
+          ),
+          Positioned(
+            left: 272,
+            top: 14.5,
+            child: Container(
+              width: 77,
+              height: 15,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFFC7B03),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(3),
                 ),
               ),
             ),
-            Positioned(
-              left: 30,
-              top: 160,
-              child: Text(
-                '기업을 소개해주세요',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+          ),
+          Positioned(
+            left: 30,
+            top: 90,
+            child: Text(
+              '기업을 소개해주세요',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 13,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 30,
+            top: 120,
+            child: Container(
+              width: 333,
+              height: 43,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFF2F2F2),
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                  borderRadius: BorderRadius.circular(5),
                 ),
               ),
             ),
-            Positioned(
-              left: 30,
-              top: 207,
-              child: Container(
-                width: 333,
-                height: 43,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFF2F2F2),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+          ),
+          Positioned(
+            left: 40,
+            top: 134,
+            child: Text(
+              '기업을 소개해주세요',
+              style: TextStyle(
+                color: const Color(0xFFCCCCCC),
+                fontSize: 12,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 30,
+            top: 250,
+            child: Text(
+              '사용 목적을 선택해주세요 (중복 선택 가능)',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 13,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 30,
+            top: 280,
+            child: Container(
+              width: 333,
+              height: 43,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFF2F2F2),
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                  borderRadius: BorderRadius.circular(5),
                 ),
               ),
             ),
-            Positioned(
-              left: 40,
-              top: 221,
-              child: Text(
-                '기업을 소개해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 10,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 30,
-              top: 303,
-              child: Text(
-                '사용 목적을 선택해주세요 (중복 선택 가능)',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 13,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 30,
-              top: 358,
-              child: Container(
-                width: 333,
-                height: 43,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFF2F2F2),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              left: 328,
-              top: 368,
-              child: Container(
+          ),
+          Positioned(
+            left: 328,
+            top: 290,
+            child: GestureDetector(
+              child: SvgPicture.asset(
+                'assets/images/keyboard_arrow_down.svg',
                 width: 24,
                 height: 24,
-                decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
+                fit: BoxFit.cover,
               ),
             ),
-            Positioned(
-              left: 43,
-              top: 371,
-              child: Text(
-                '인재 발굴 및 지역 네트워크',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+          ),
+          Positioned(
+            left: 43,
+            top: 293,
+            child: Text(
+              '인재 발굴 및 지역 네트워크',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 32,
+            top: 400,
+            child: Text(
+              '산업 분야를 입력해주세요',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 32,
+            top: 430,
+            child: Container(
+              width: 333,
+              height: 43,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFF2F2F2),
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                  borderRadius: BorderRadius.circular(5),
                 ),
               ),
             ),
-            Positioned(
-              left: 32,
-              top: 462,
-              child: Text(
-                '산업 분야를 입력해주세요',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
+          ),
+          Positioned(
+            left: 60,
+            top: 444,
+            child: Text(
+              '산업 분야를 입력해주세요',
+              style: TextStyle(
+                color: const Color(0xFFB3B3B3),
+                fontSize: 12,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
               ),
             ),
-            Positioned(
-              left: 32,
-              top: 515,
-              child: Container(
-                width: 333,
-                height: 43,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFF2F2F2),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
+          ),
+          Positioned(
+            left: 43,
+            top: 440,
+            child: Text(
+              '#',
+              style: TextStyle(
+                color: const Color(0xFFB3B3B3),
+                fontSize: 17,
+                fontFamily: 'Pretendard',
+                fontWeight: FontWeight.w500,
+                height: 1.50,
               ),
             ),
-            Positioned(
-              left: 60,
-              top: 530,
-              child: Text(
-                '산업 분야를 입력해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFB3B3B3),
-                  fontSize: 10,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 43,
-              top: 524,
-              child: Text(
-                '#',
-                style: TextStyle(
-                  color: const Color(0xFFB3B3B3),
-                  fontSize: 17,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
-    ],
+    ),
   );
 }
