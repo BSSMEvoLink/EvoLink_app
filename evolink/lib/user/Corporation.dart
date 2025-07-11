@@ -20,7 +20,9 @@ class _CorporationJoinState extends State<CorporationJoin> {
               ? _buildStep1()
               : step == 1
               ? _buildStep2()
-              : _buildStep3(),
+              : step == 2
+              ? _buildStep3()
+              : _buildStep4(), // 🔥 step == 3일 때 실행될 함수
     );
   }
 
@@ -912,28 +914,672 @@ class _CorporationJoinState extends State<CorporationJoin> {
   }
 
   Widget _buildStep3() {
-    return Container(
-      width: 393,
-      height: 852,
-      color: Colors.white,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return SingleChildScrollView(
+      child: Container(
+        width: 393,
+        height: 852,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(color: Colors.white),
+        child: Stack(
           children: [
-            const Text(
-              'STEP 3: 약관 동의 및 제출 화면입니다.',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Positioned(
+              left: 30,
+              top: 10,
+              child: Text(
+                '회원가입',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // 제출 로직 또는 완료 페이지 이동
-              },
-              child: const Text('제출'),
+            Positioned(
+              left: 32,
+              top: 600,
+              child: Container(
+                width: 328,
+                height: 50,
+                child: Container(
+                  width: 328,
+                  height: 50,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        print('클릭됨');
+                        step = 3;
+                      });
+                    },
+                    child: Container(
+                      width: 328,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFFAC1E),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        '다음',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 105,
+              top: 14.5,
+              child: Container(
+                width: 77,
+                height: 15,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFC7B03),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 189,
+              top: 14.5,
+              child: Container(
+                width: 76,
+                height: 15,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFC7B03),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 272,
+              top: 14.5,
+              child: Container(
+                width: 77,
+                height: 15,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFD9D9D9),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 115,
+              child: Text(
+                '담당자 성함 (선택)',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 13,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 63,
+              child: Text(
+                '아래의 정보는 귀사의 신뢰도를 높히고, 매칭을 더 쉽게 만들어드립니다.',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 150,
+              child: Container(
+                width: 333,
+                height: 43,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFF2F2F2),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 39,
+              top: 165,
+              child: Text(
+                '담당자 성함을 입력해주세요',
+                style: TextStyle(
+                  color: const Color(0xFFCCCCCC),
+                  fontSize: 10,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 218,
+              child: Text(
+                '담당자 직함(선택)',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 13,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 253,
+              child: Container(
+                width: 333,
+                height: 43,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFF2F2F2),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 39,
+              top: 268,
+              child: Text(
+                '담당자 직함을 입력해주세요',
+                style: TextStyle(
+                  color: const Color(0xFFCCCCCC),
+                  fontSize: 10,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 32,
+              top: 343,
+              child: Container(
+                width: 337,
+                height: 79,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 0,
+                      top: 19,
+                      child: Container(
+                        width: 230,
+                        height: 50,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: ShapeDecoration(
+                          color: const Color(0xFFF2F2F2),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              left: 12,
+                              top: 15,
+                              child: Text(
+                                '회사 이메일을 입력해주세요',
+                                style: TextStyle(
+                                  color: const Color(0xFFB3B3B3),
+                                  fontSize: 14,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.50,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 245,
+                      top: 19,
+                      child: Container(
+                        width: 85,
+                        height: 50,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: ShapeDecoration(
+                          color: const Color(0xFFFFAC1E),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              left: 20,
+                              top: 15,
+                              child: Text(
+                                '인증번호',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.50,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 2,
+                      top: -4,
+                      child: Text(
+                        '회사 이메일 (선택)',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 32,
+              top: 447,
+              child: Container(
+                width: 337,
+                height: 79,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 0,
+                      top: 19,
+                      child: Container(
+                        width: 230,
+                        height: 50,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: ShapeDecoration(
+                          color: const Color(0xFFF2F2F2),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              left: 12,
+                              top: 15,
+                              child: Text(
+                                '회사 인증번호를 입력해주세요',
+                                style: TextStyle(
+                                  color: const Color(0xFFB3B3B3),
+                                  fontSize: 14,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.50,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 245,
+                      top: 19,
+                      child: Container(
+                        width: 85,
+                        height: 50,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: ShapeDecoration(
+                          color: const Color(0xFFFFAC1E),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              left: 20,
+                              top: 15,
+                              child: Text(
+                                '   확인',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.50,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 2,
+                      top: -4,
+                      child: Text(
+                        '회사 이메일 인증 (선택)',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 34,
+              top: 541,
+              child: Text(
+                '이메일 인증이 완료되었습니다',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+Widget _buildStep4() {
+  return Column(
+    children: [
+      Container(
+        width: 393,
+        height: 852,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(color: Colors.white),
+        child: Stack(
+          children: [
+            Positioned(
+              left: 30,
+              top: 81,
+              child: Text(
+                '회원가입',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 32,
+              top: 698,
+              child: Container(
+                width: 328,
+                height: 50,
+                clipBehavior: Clip.antiAlias,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFFAC1E),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 134,
+                      top: 15,
+                      child: Text(
+                        '로그인하기',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 105,
+              top: 85,
+              child: Container(
+                width: 77,
+                height: 15,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFC7B03),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 189,
+              top: 85,
+              child: Container(
+                width: 76,
+                height: 15,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFC7B03),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 272,
+              top: 85,
+              child: Container(
+                width: 77,
+                height: 15,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFC7B03),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 160,
+              child: Text(
+                '기업을 소개해주세요',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 207,
+              child: Container(
+                width: 333,
+                height: 43,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFF2F2F2),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 40,
+              top: 221,
+              child: Text(
+                '기업을 소개해주세요',
+                style: TextStyle(
+                  color: const Color(0xFFCCCCCC),
+                  fontSize: 10,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 303,
+              child: Text(
+                '사용 목적을 선택해주세요 (중복 선택 가능)',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 13,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30,
+              top: 358,
+              child: Container(
+                width: 333,
+                height: 43,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFF2F2F2),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 328,
+              top: 368,
+              child: Container(
+                width: 24,
+                height: 24,
+                decoration: BoxDecoration(color: const Color(0xFFD9D9D9)),
+              ),
+            ),
+            Positioned(
+              left: 43,
+              top: 371,
+              child: Text(
+                '인재 발굴 및 지역 네트워크',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 32,
+              top: 462,
+              child: Text(
+                '산업 분야를 입력해주세요',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 32,
+              top: 515,
+              child: Container(
+                width: 333,
+                height: 43,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFF2F2F2),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 60,
+              top: 530,
+              child: Text(
+                '산업 분야를 입력해주세요',
+                style: TextStyle(
+                  color: const Color(0xFFB3B3B3),
+                  fontSize: 10,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 43,
+              top: 524,
+              child: Text(
+                '#',
+                style: TextStyle(
+                  color: const Color(0xFFB3B3B3),
+                  fontSize: 17,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
 }
