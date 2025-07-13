@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:evolink/login/login.dart';
+import 'package:evolink/screen/login/login.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,3 +1,4 @@
+import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,7 +23,7 @@ class _CorporationJoinState extends State<CorporationJoin> {
               ? _buildStep2()
               : step == 2
               ? _buildStep3()
-              : _buildStep4(), // tep == 3일 때 실행될 함수
+              : _buildStep4(context), // tep == 3일 때 실행될 함수
     );
   }
 
@@ -1326,7 +1327,7 @@ class _CorporationJoinState extends State<CorporationJoin> {
   }
 }
 
-Widget _buildStep4() {
+Widget _buildStep4(BuildContext context) {
   return SingleChildScrollView(
     child: Container(
       width: 393,
@@ -1352,33 +1353,35 @@ Widget _buildStep4() {
           Positioned(
             left: 32,
             top: 600,
-            child: Container(
-              width: 328,
-              height: 50,
-              clipBehavior: Clip.antiAlias,
-              decoration: ShapeDecoration(
-                color: const Color(0xFFFFAC1E),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6),
-                ),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: 134,
-                    top: 15,
-                    child: Text(
-                      '로그인하기',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Pretendard',
-                        fontWeight: FontWeight.w500,
-                        height: 1.50,
-                      ),
-                    ),
+            child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                print('메인페이지 이동');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Mainscrren()),
+                );
+              },
+              child: Container(
+                width: 328,
+                height: 50,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFFAC1E),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
                   ),
-                ],
+                ),
+                alignment: Alignment.center,
+                child: const Text(
+                  '로그인하기',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w500,
+                    height: 1.50,
+                  ),
+                ),
               ),
             ),
           ),
