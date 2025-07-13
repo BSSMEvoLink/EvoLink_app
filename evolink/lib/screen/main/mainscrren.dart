@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Mainscrren extends StatefulWidget {
   const Mainscrren({super.key});
@@ -179,11 +180,12 @@ class _MainscrrenState extends State<Mainscrren> {
                     Positioned(
                       left: 8,
                       top: 31,
-                      child: Container(
-                        width: 20,
-                        height: 20,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFD9D9D9),
+                      child: GestureDetector(
+                        child: SvgPicture.asset(
+                          'assets/images/keyboard_arrow_down.svg',
+                          width: 24,
+                          height: 24,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
