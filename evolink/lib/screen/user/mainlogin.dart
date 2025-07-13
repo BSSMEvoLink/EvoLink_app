@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:evolink/user/freelancer.dart';
-import 'package:evolink/user/Corporation.dart';
-import 'package:evolink/user/localgovernment.dart';
+import 'package:evolink/screen/user/freelancer.dart';
+import 'package:evolink/screen/user/Corporation.dart';
+import 'package:evolink/screen/user/localgovernment.dart';
 
 class Mainlogin extends StatefulWidget {
   const Mainlogin({super.key});
