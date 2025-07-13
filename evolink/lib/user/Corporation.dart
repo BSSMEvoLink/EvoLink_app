@@ -22,7 +22,7 @@ class _CorporationJoinState extends State<CorporationJoin> {
               ? _buildStep2()
               : step == 2
               ? _buildStep3()
-              : _buildStep4(), // 🔥 step == 3일 때 실행될 함수
+              : _buildStep4(), // tep == 3일 때 실행될 함수
     );
   }
 
