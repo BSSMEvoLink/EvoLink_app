@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:evolink/screen/main/mainscrren.dart';
 
 class LocalgovernmentJoin extends StatefulWidget {
   const LocalgovernmentJoin({super.key});
@@ -20,7 +21,7 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
               ? _buildStep1()
               : step == 1
               ? _buildStep2()
-              : _buildStep3(),
+              : _buildStep3(context),
     );
   }
 
@@ -795,7 +796,7 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
     );
   }
 
-  Widget _buildStep3() {
+  Widget _buildStep3(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
         width: 393,
@@ -821,33 +822,35 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
             Positioned(
               left: 32,
               top: 600,
-              child: Container(
-                width: 328,
-                height: 50,
-                clipBehavior: Clip.antiAlias,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFFAC1E),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: 134,
-                      top: 15,
-                      child: Text(
-                        '로그인하기',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          height: 1.50,
-                        ),
-                      ),
+              child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  print('메인페이지 이동');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Mainscrren()),
+                  );
+                },
+                child: Container(
+                  width: 328,
+                  height: 50,
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFFFAC1E),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                  ],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text(
+                    '로그인하기',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                  ),
                 ),
               ),
             ),

@@ -33,6 +33,7 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/images/Evolinklogo.png
+    - assets/images/images.jpeg
     - assets/images/check_circle.svg
     - assets/images/keyboard_arrow_down.svg
     

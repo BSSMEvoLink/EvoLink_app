@@ -1,3 +1,4 @@
+import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:evolink/screen/user/mainlogin.dart';
 import 'package:flutter/material.dart';
 
@@ -34,31 +35,41 @@ class _LoginState extends State<Login> {
               Positioned(
                 left: 34,
                 top: 647,
-                child: Container(
-                  width: 328,
-                  height: 50,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFFFAC1E),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Mainscrren(),
+                      ), // ← 이동할 페이지로 수정
+                    );
+                  },
+                  child: Container(
+                    width: 328,
+                    height: 50,
+                    decoration: ShapeDecoration(
+                      color: const Color(0xFFFFAC1E),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
                     ),
-                  ),
-                  child: Center(
-                    // 중앙 정렬을 위해 Center 위젯 사용
-                    child: Text(
-                      '로그인하기',
-                      style: TextStyle(
-                        decoration: TextDecoration.none,
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Pretendard',
-                        fontWeight: FontWeight.w500,
-                        height: 1.50,
+                    child: Center(
+                      child: Text(
+                        '로그인하기',
+                        style: TextStyle(
+                          decoration: TextDecoration.none,
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
+
               Positioned(
                 left: 34,
                 top: 410,

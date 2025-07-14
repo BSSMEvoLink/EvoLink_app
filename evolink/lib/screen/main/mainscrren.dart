@@ -1,3 +1,6 @@
+import 'package:evolink/screen/%20community/community.dart';
+import 'package:evolink/screen/Matching/mainmatch.dart';
+import 'package:evolink/screen/mypage/mypage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -163,7 +166,7 @@ class _MainscrrenState extends State<Mainscrren> {
                       ),
                     ),
                     Positioned(
-                      left: 34,
+                      left: 35,
                       top: 71,
                       child: Text(
                         '읽지 않은 메세지 3건이 존재합니다.',
@@ -185,6 +188,19 @@ class _MainscrrenState extends State<Mainscrren> {
                           'assets/images/keyboard_arrow_down.svg',
                           width: 24,
                           height: 24,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 9,
+                      top: 65,
+                      child: GestureDetector(
+                        child: SvgPicture.asset(
+                          'assets/images/notifications.svg',
+                          width: 22,
+                          height: 22,
+                          color: const Color(0xFFFC7B03),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -266,7 +282,7 @@ class _MainscrrenState extends State<Mainscrren> {
                       ),
                     ),
                     Positioned(
-                      left: 20,
+                      left: 21,
                       top: 186,
                       child: Text(
                         '3',
@@ -281,55 +297,15 @@ class _MainscrrenState extends State<Mainscrren> {
                       ),
                     ),
                     Positioned(
-                      left: 17,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 212,
-                      child: Container(
-                        width: 15,
-                        height: 15,
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 17,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 186,
-                      child: Container(
-                        width: 14,
-                        height: 14,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFD9D9D9),
+                      left: -1,
+                      top: 183,
+                      child: GestureDetector(
+                        child: SvgPicture.asset(
+                          'assets/images/favorite.svg',
+                          width: 20,
+                          height: 20,
+                          color: const Color(0xFFFC7B03),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -341,7 +317,9 @@ class _MainscrrenState extends State<Mainscrren> {
                         height: 100,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage("https://placehold.co/100x100"),
+                            image: AssetImage(
+                              'assets/images/images.jpeg',
+                            ), // ← 로컬 이미지 경로
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -362,21 +340,6 @@ class _MainscrrenState extends State<Mainscrren> {
                             fontWeight: FontWeight.w500,
                             letterSpacing: -0.24,
                           ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 20,
-                      top: 186,
-                      child: Text(
-                        '3',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
                         ),
                       ),
                     ),
@@ -430,12 +393,15 @@ class _MainscrrenState extends State<Mainscrren> {
                         height: 100,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage("https://placehold.co/100x100"),
+                            image: AssetImage(
+                              'assets/images/images.jpeg',
+                            ), // ← 로컬 이미지 경로
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
                     ),
+
                     Positioned(
                       left: 116,
                       top: 150,
@@ -455,7 +421,7 @@ class _MainscrrenState extends State<Mainscrren> {
                       ),
                     ),
                     Positioned(
-                      left: 136,
+                      left: 138,
                       top: 186,
                       child: Text(
                         '3',
@@ -513,12 +479,14 @@ class _MainscrrenState extends State<Mainscrren> {
                     ),
                     Positioned(
                       left: 116,
-                      top: 186,
-                      child: Container(
-                        width: 14,
-                        height: 14,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFD9D9D9),
+                      top: 184,
+                      child: GestureDetector(
+                        child: SvgPicture.asset(
+                          'assets/images/favorite.svg',
+                          width: 20,
+                          height: 20,
+                          color: const Color(0xFFFC7B03),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -530,7 +498,9 @@ class _MainscrrenState extends State<Mainscrren> {
                         height: 100,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage("https://placehold.co/100x100"),
+                            image: AssetImage(
+                              'assets/images/images.jpeg',
+                            ), // ← 로컬 이미지 경로
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -555,7 +525,7 @@ class _MainscrrenState extends State<Mainscrren> {
                       ),
                     ),
                     Positioned(
-                      left: 252,
+                      left: 253,
                       top: 186,
                       child: Text(
                         '3',
@@ -613,12 +583,14 @@ class _MainscrrenState extends State<Mainscrren> {
                     ),
                     Positioned(
                       left: 232,
-                      top: 186,
-                      child: Container(
-                        width: 14,
-                        height: 14,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFD9D9D9),
+                      top: 184,
+                      child: GestureDetector(
+                        child: SvgPicture.asset(
+                          'assets/images/favorite.svg',
+                          width: 20,
+                          height: 20,
+                          color: const Color(0xFFFC7B03),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -813,29 +785,78 @@ class _MainscrrenState extends State<Mainscrren> {
                             Container(
                               width: 30,
                               height: 30,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFD9D9D9),
+                              child: GestureDetector(
+                                child: SvgPicture.asset(
+                                  'assets/images/home.svg',
+                                  width: 22,
+                                  height: 22,
+                                  color: const Color(0xFFFC7B03),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                             Container(
                               width: 24,
                               height: 24,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFD9D9D9),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Maincommunity(),
+                                    ), // 이동할 페이지 위젯
+                                  );
+                                },
+                                child: SvgPicture.asset(
+                                  'assets/images/edit_square.svg',
+                                  width: 22,
+                                  height: 22,
+                                  color: const Color(0xFFFC7B03),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+
+                            Container(
+                              width: 24,
+                              height: 24,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Mainmatch(),
+                                    ), // 이동할 페이지 위젯
+                                  );
+                                },
+                                child: SvgPicture.asset(
+                                  'assets/images/chat_bubble.svg',
+                                  width: 22,
+                                  height: 22,
+                                  color: const Color(0xFFFC7B03),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                             Container(
                               width: 24,
                               height: 24,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFD9D9D9),
-                              ),
-                            ),
-                            Container(
-                              width: 24,
-                              height: 24,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFD9D9D9),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Mypage(),
+                                    ), // 이동할 페이지 위젯
+                                  );
+                                },
+                                child: SvgPicture.asset(
+                                  'assets/images/account_circle.svg',
+                                  width: 22,
+                                  height: 22,
+                                  color: const Color(0xFFFC7B03),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ],
