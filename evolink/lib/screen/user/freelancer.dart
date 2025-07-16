@@ -71,23 +71,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '이메일을 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '이메일을 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -107,7 +103,7 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 18,
                               top: 15,
                               child: Text(
                                 '인증번호',
@@ -165,23 +161,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '인증번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '인증번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -201,10 +193,10 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 30,
                               top: 15,
                               child: Text(
-                                '   확인',
+                                '확인',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 14,
@@ -259,23 +251,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '비밀번호를 다시 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '비밀번호를 다시 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -295,10 +283,10 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 30,
                               top: 15,
                               child: Text(
-                                '   확인',
+                                '확인',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 14,
@@ -381,23 +369,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 15,
-                              top: 16,
-                              child: Text(
-                                '비밀번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '비밀번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 15, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -604,12 +588,12 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
             ),
             Positioned(
               left: 30,
-              top: 430,
+              top: 420,
               child: Text(
-                '기술 태그를 입력해주세요',
+                '기술태그를 입력해주세요',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 12,
+                  fontSize: 13,
                   fontFamily: 'Pretendard',
                   fontWeight: FontWeight.w500,
                   height: 1.50,
@@ -618,7 +602,7 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
             ),
             Positioned(
               left: 30,
-              top: 465,
+              top: 465, // 기존 위치에 맞게 조정 필요
               child: Container(
                 width: 333,
                 height: 43,
@@ -629,19 +613,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 62,
-              top: 479,
-              child: Text(
-                '기술 스택을 입력해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFB3B3B3),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '기술태그를 입력해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 30, top: -7),
+                  ),
                 ),
               ),
             ),
@@ -686,19 +670,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 39,
-              top: 139,
-              child: Text(
-                '사용자님의 닉네임을 작성해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '사용자님의 닉네임을 작성해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: -7),
+                  ),
                 ),
               ),
             ),
@@ -850,19 +834,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 40,
-              top: 154,
-              child: Text(
-                '사용자님을 소개해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '사용자님을 소개해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 10, top: -7),
+                  ),
                 ),
               ),
             ),
@@ -882,7 +866,7 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
             ),
             Positioned(
               left: 30,
-              top: 350,
+              top: 345, // 기존 위치에 맞게 조정 필요
               child: Container(
                 width: 333,
                 height: 43,
@@ -893,19 +877,19 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 42,
-              top: 364,
-              child: Text(
-                '포트폴리오 링크를 첨부해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '포트폴리오를 첨부해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: -7),
+                  ),
                 ),
               ),
             ),

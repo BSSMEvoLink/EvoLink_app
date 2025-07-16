@@ -71,23 +71,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '이메일을 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '이메일을 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -165,23 +161,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '인증번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '인증번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -259,23 +251,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '비밀번호를 다시 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '비밀번호를 다시 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -381,23 +369,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 15,
-                              top: 16,
-                              child: Text(
-                                '비밀번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '비밀번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 15, top: 16),
+                          ),
                         ),
                       ),
                     ),
@@ -633,19 +617,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 37,
-              top: 134,
-              child: Text(
-                '지자체명을 작성해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '지자체명을 작성해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: 10),
+                  ),
                 ),
               ),
             ),
@@ -674,6 +658,20 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
                     borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '부서명을 입력해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: 10),
                   ),
                 ),
               ),
@@ -719,19 +717,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 38,
-              top: 374,
-              child: Text(
-                '담당자 직함을 입력해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '담당자 직함을 입력해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: 10),
+                  ),
                 ),
               ),
             ),
@@ -883,19 +881,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 40,
-              top: 234,
-              child: Text(
-                '에보링 협업 목적 기관 등록 확인 공문을 업로드해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '에보링 협업 목적 기관 등록 확인 공문을 업로드해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: 10),
+                  ),
                 ),
               ),
             ),
@@ -912,19 +910,19 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 40,
-              top: 368,
-              child: Text(
-                '에보링 등록 사유를 입력해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '에보링 등록 사유를 입력해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: 10),
+                  ),
                 ),
               ),
             ),
