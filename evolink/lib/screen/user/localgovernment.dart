@@ -749,47 +749,7 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
                 ),
               ),
             ),
-            Positioned(
-              left: 29,
-              top: 470,
-              child: Container(
-                width: 333,
-                height: 43,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFF2F2F2),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              left: 327,
-              top: 480,
-              child: GestureDetector(
-                child: SvgPicture.asset(
-                  'assets/images/keyboard_arrow_down.svg',
-                  width: 24,
-                  height: 24,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 42,
-              top: 484,
-              child: Text(
-                '부산광역시 강서구청',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
-              ),
-            ),
+            ProvinceDropdown(),
           ],
         ),
       ),
@@ -985,6 +945,180 @@ class _LocalgovernmentJoinState extends State<LocalgovernmentJoin> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ProvinceDropdown extends StatefulWidget {
+  const ProvinceDropdown({super.key});
+
+  @override
+  State<ProvinceDropdown> createState() => _ProvinceDropdownState();
+}
+
+class _ProvinceDropdownState extends State<ProvinceDropdown> {
+  String selectedProvince = '부산광역시';
+  bool showDropdown = false;
+  String searchKeyword = '';
+
+  final List<String> provinces = [
+    '서울특별시',
+    '부산광역시',
+    '대구광역시',
+    '인천광역시',
+    '광주광역시',
+    '대전광역시',
+    '울산광역시',
+    '세종특별자치시',
+    '경기도',
+    '강원특별자치도',
+    '충청북도',
+    '충청남도',
+    '전라북도',
+    '전라남도',
+    '경상북도',
+    '경상남도',
+    '제주특별자치도',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> filteredList =
+        provinces.where((item) => item.contains(searchKeyword)).toList();
+
+    return Stack(
+      children: [
+        // 드롭다운 박스
+        Positioned(
+          left: 29,
+          top: 470,
+          child: Container(
+            width: 333,
+            height: 43,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFF2F2F2),
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 1, color: Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+          ),
+        ),
+
+        // 선택된 텍스트
+        Positioned(
+          left: 42,
+          top: 484,
+          child: Text(
+            selectedProvince,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w500,
+              height: 1.50,
+            ),
+          ),
+        ),
+
+        // 화살표 버튼
+        Positioned(
+          left: 327,
+          top: 480,
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                showDropdown = !showDropdown;
+                searchKeyword = '';
+              });
+            },
+            child: SvgPicture.asset(
+              'assets/images/keyboard_arrow_down.svg',
+              width: 24,
+              height: 24,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+
+        if (showDropdown)
+          Positioned(
+            left: 29,
+            top: 513,
+            child: Container(
+              width: 333,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: const Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                children: [
+                  // 검색창
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
+                    child: TextField(
+                      onChanged: (value) {
+                        setState(() {
+                          searchKeyword = value;
+                        });
+                      },
+                      style: const TextStyle(fontSize: 12),
+                      decoration: InputDecoration(
+                        hintText: '검색',
+                        hintStyle: const TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFFB3B3B3),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 0,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFFC7B03),
+                          ),
+                        ),
+                        isDense: true,
+                      ),
+                    ),
+                  ),
+
+                  // 항목 리스트
+                  for (final item in filteredList)
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedProvince = item;
+                          showDropdown = false;
+                        });
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 10,
+                        ),
+                        child: Text(
+                          item,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+      ],
     );
   }
 }

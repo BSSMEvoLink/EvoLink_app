@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:evolink/screen/main/mainscrren.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FreelancerJoin extends StatefulWidget {
   const FreelancerJoin({super.key});
@@ -715,35 +716,7 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
                 ),
               ),
             ),
-            Positioned(
-              left: 30,
-              top: 300,
-              child: Container(
-                width: 333,
-                height: 43,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFF2F2F2),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              left: 42,
-              top: 313,
-              child: Text(
-                '디자인, 그래픽 디자인',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
-              ),
-            ),
+            IndustryDropdownPositioned(),
           ],
         ),
       ),
@@ -939,6 +912,138 @@ class _FreelancerJoinState extends State<FreelancerJoin> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class IndustryDropdownPositioned extends StatefulWidget {
+  const IndustryDropdownPositioned({super.key});
+
+  @override
+  State<IndustryDropdownPositioned> createState() =>
+      _IndustryDropdownPositionedState();
+}
+
+class _IndustryDropdownPositionedState
+    extends State<IndustryDropdownPositioned> {
+  String selectedIndustry = '디자인, 그래픽 디자인';
+  bool showDropdown = false;
+
+  final List<String> industries = [
+    '디자인',
+    'IT/소프트웨어',
+    '마케팅/광고',
+    '교육',
+    '제조/생산',
+    '유통/물류',
+    '헬스케어/바이오',
+    '금융',
+    '법률/노무/회계',
+    '문화예술/콘텐츠',
+    '기타',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        // 배경 박스
+        Positioned(
+          left: 30,
+          top: 300,
+          child: Container(
+            width: 333,
+            height: 43,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFF2F2F2),
+              shape: RoundedRectangleBorder(
+                side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+          ),
+        ),
+
+        // 선택된 텍스트
+        Positioned(
+          left: 42,
+          top: 313,
+          child: Text(
+            selectedIndustry,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w500,
+              height: 1.50,
+            ),
+          ),
+        ),
+
+        // 드롭다운 화살표
+        Positioned(
+          left: 329,
+          top: 312,
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                showDropdown = !showDropdown;
+              });
+            },
+            child: SvgPicture.asset(
+              'assets/images/keyboard_arrow_down.svg',
+              width: 24,
+              height: 24,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+
+        // 드롭다운 펼쳐진 메뉴
+        if (showDropdown)
+          Positioned(
+            left: 30,
+            top: 343, // 바로 아래
+            child: Container(
+              width: 333,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: const Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    industries.map((industry) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndustry = industry;
+                            showDropdown = false;
+                          });
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 10,
+                          ),
+                          child: Text(
+                            industry,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+              ),
+            ),
+          ),
+      ],
     );
   }
 }

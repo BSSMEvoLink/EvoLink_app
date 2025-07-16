@@ -867,47 +867,7 @@ class _CorporationJoinState extends State<CorporationJoin> {
                 ),
               ),
             ),
-            Positioned(
-              left: 30,
-              top: 460,
-              child: Container(
-                width: 333,
-                height: 43,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFF2F2F2),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              left: 329,
-              top: 470,
-              child: GestureDetector(
-                child: SvgPicture.asset(
-                  'assets/images/keyboard_arrow_down.svg',
-                  width: 24,
-                  height: 24,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 42,
-              top: 473,
-              child: Text(
-                '스타트업',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
-              ),
-            ),
+            CompanyTypeDropdownPositioned(),
           ],
         ),
       ),
@@ -1484,47 +1444,7 @@ Widget _buildStep4(BuildContext context) {
               ),
             ),
           ),
-          Positioned(
-            left: 30,
-            top: 280,
-            child: Container(
-              width: 333,
-              height: 43,
-              decoration: ShapeDecoration(
-                color: const Color(0xFFF2F2F2),
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 328,
-            top: 290,
-            child: GestureDetector(
-              child: SvgPicture.asset(
-                'assets/images/keyboard_arrow_down.svg',
-                width: 24,
-                height: 24,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Positioned(
-            left: 43,
-            top: 293,
-            child: Text(
-              '인재 발굴 및 지역 네트워크',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 12,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w500,
-                height: 1.50,
-              ),
-            ),
-          ),
+
           Positioned(
             left: 32,
             top: 400,
@@ -1582,8 +1502,259 @@ Widget _buildStep4(BuildContext context) {
               ),
             ),
           ),
+          PurposeDropdownPositioned(),
         ],
       ),
     ),
   );
+}
+
+class CompanyTypeDropdownPositioned extends StatefulWidget {
+  const CompanyTypeDropdownPositioned({super.key});
+
+  @override
+  State<CompanyTypeDropdownPositioned> createState() =>
+      _CompanyTypeDropdownPositionedState();
+}
+
+class _CompanyTypeDropdownPositionedState
+    extends State<CompanyTypeDropdownPositioned> {
+  String selectedType = '스타트업';
+  bool showDropdown = false;
+
+  final List<String> companyTypes = ['대기업', '중견기업', '중소기업', '스타트업', '공공기관'];
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        // 회색 드롭다운 프레임
+        Positioned(
+          left: 30,
+          top: 460,
+          child: Container(
+            width: 333,
+            height: 43,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFF2F2F2),
+              shape: RoundedRectangleBorder(
+                side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+          ),
+        ),
+
+        // 텍스트
+        Positioned(
+          left: 42,
+          top: 473,
+          child: Text(
+            selectedType,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w500,
+              height: 1.50,
+            ),
+          ),
+        ),
+
+        // 드롭다운 화살표
+        Positioned(
+          left: 329,
+          top: 470,
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                showDropdown = !showDropdown;
+              });
+            },
+            child: SvgPicture.asset(
+              'assets/images/keyboard_arrow_down.svg',
+              width: 24,
+              height: 24,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+
+        // 드롭다운 메뉴
+        if (showDropdown)
+          Positioned(
+            left: 30,
+            top: 510, // 프레임 바로 아래
+            child: Container(
+              width: 333,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: const Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    companyTypes.map((type) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedType = type;
+                            showDropdown = false;
+                          });
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 10,
+                          ),
+                          child: Text(
+                            type,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class PurposeDropdownPositioned extends StatefulWidget {
+  const PurposeDropdownPositioned({super.key});
+
+  @override
+  State<PurposeDropdownPositioned> createState() =>
+      _PurposeDropdownPositionedState();
+}
+
+class _PurposeDropdownPositionedState extends State<PurposeDropdownPositioned> {
+  String selectedPurpose = '프로젝트 기반 협업자 모집';
+  bool showDropdown = false;
+
+  final List<String> purposes = [
+    '프로젝트 기반 협업자 모집',
+    '프리랜서 또는 외주 전문가 탐색',
+    '신규 사업 기획 및 공동 개발',
+    '기업 간 B2B 협력 기회 탐색',
+    '지역 기반 네트워크 확장',
+    '정부/지자체 연계 사업 참여',
+    '투자 유치 또는 파트너사 발굴',
+    '자사 서비스 또는 제품 홍보',
+    '채용을 위한 인재 탐색',
+    '업계 동향 파악 및 정보 교류',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        // 드롭다운 배경 박스
+        Positioned(
+          left: 30,
+          top: 280,
+          child: Container(
+            width: 333,
+            height: 43,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFF2F2F2),
+              shape: RoundedRectangleBorder(
+                side: BorderSide(width: 1, color: const Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+          ),
+        ),
+
+        // 선택된 텍스트
+        Positioned(
+          left: 42,
+          top: 293,
+          child: Text(
+            selectedPurpose,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w500,
+              height: 1.50,
+            ),
+          ),
+        ),
+
+        // 드롭다운 화살표
+        Positioned(
+          left: 329,
+          top: 290,
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                showDropdown = !showDropdown;
+              });
+            },
+            child: SvgPicture.asset(
+              'assets/images/keyboard_arrow_down.svg',
+              width: 24,
+              height: 24,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+
+        // 드롭다운 펼쳐진 메뉴
+        if (showDropdown)
+          Positioned(
+            left: 30,
+            top: 324,
+            child: Container(
+              width: 333,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: const Color(0xFFFC7B03)),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    purposes.map((purpose) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedPurpose = purpose;
+                            showDropdown = false;
+                          });
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 10,
+                          ),
+                          child: Text(
+                            purpose,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
 }
