@@ -1,3 +1,4 @@
+import 'package:evolink/screen/%20community/communityadd.dart';
 import 'package:evolink/screen/Matching/mainmatch.dart';
 import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:evolink/screen/mypage/mypage.dart';
@@ -308,7 +309,29 @@ class _MaincommunityState extends State<Maincommunity> {
                       ),
                     ),
                   ),
-
+                  Positioned(
+                    left: 330,
+                    top: 10,
+                    child: GestureDetector(
+                      onTap: () {
+                        print('아이콘 클릭됨');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) =>
+                                    Communityadd(), // ← 이 페이지가 정상 구현되어 있어야 함
+                          ),
+                        );
+                      },
+                      child: SvgPicture.asset(
+                        'assets/images/edit_document.svg',
+                        width: 24,
+                        height: 24,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                   Positioned(
                     //두 번째
                     left: 210,

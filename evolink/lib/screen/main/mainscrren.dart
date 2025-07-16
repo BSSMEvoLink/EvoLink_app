@@ -35,6 +35,32 @@ class _MainscrrenState extends State<Mainscrren> {
               ),
             ),
             Positioned(
+              left: 300,
+              top: 80,
+              child: GestureDetector(
+                child: SvgPicture.asset(
+                  'assets/images/notifications.svg',
+                  width: 30,
+                  height: 30,
+                  color: const Color(0xFFFC7B03),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 340,
+              top: 79,
+              child: GestureDetector(
+                child: SvgPicture.asset(
+                  'assets/images/lists.svg',
+                  width: 30,
+                  height: 30,
+                  color: const Color(0xFFFC7B03),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned(
               left: 0,
               top: 818,
               child: Container(
