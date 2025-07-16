@@ -180,7 +180,6 @@ class _MaincommunityState extends State<Maincommunity> {
                       ),
                     ),
                   ),
-
                   Positioned(
                     //첫 번째
                     left: 30,

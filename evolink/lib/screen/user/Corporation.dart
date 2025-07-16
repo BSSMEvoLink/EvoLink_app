@@ -73,23 +73,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '이메일을 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '이메일을 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.0,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -109,7 +105,7 @@ class _CorporationJoinState extends State<CorporationJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 18,
                               top: 15,
                               child: Text(
                                 '인증번호',
@@ -167,23 +163,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '인증번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '인증번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.0,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -203,10 +195,10 @@ class _CorporationJoinState extends State<CorporationJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 30,
                               top: 15,
                               child: Text(
-                                '   확인',
+                                '확인',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 14,
@@ -261,23 +253,20 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '비밀번호를 다시 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: '비밀번호를 다시 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.0,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -297,10 +286,10 @@ class _CorporationJoinState extends State<CorporationJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 30,
                               top: 15,
                               child: Text(
-                                '   확인',
+                                '확인',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 14,
@@ -383,23 +372,20 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 15,
-                              top: 16,
-                              child: Text(
-                                '비밀번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: '비밀번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.0,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 15, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -635,19 +621,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 38,
-              top: 134,
-              child: Text(
-                '회사명을 작성해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 13,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '회사명을 작성해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 13,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.0,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: -5),
+                  ),
                 ),
               ),
             ),
@@ -674,23 +660,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '사업자등록번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '사업자등록번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.0,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -782,23 +764,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '사업등록증을 업로드해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '사업등록증을 업로드해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.0,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -1019,19 +997,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 39,
-              top: 165,
-              child: Text(
-                '담당자 성함을 입력해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 10,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '담당자 성함을 입력해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 11,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: -7),
+                  ),
                 ),
               ),
             ),
@@ -1062,19 +1040,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 39,
-              top: 268,
-              child: Text(
-                '담당자 직함을 입력해주세요',
-                style: TextStyle(
-                  color: const Color(0xFFCCCCCC),
-                  fontSize: 10,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: '담당자 직함을 입력해주세요',
+                    hintStyle: TextStyle(
+                      color: const Color(0xFFCCCCCC),
+                      fontSize: 11,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      height: 1.50,
+                    ),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 9, top: -7),
+                  ),
                 ),
               ),
             ),
@@ -1101,23 +1079,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '회사 이메일을 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '회사 이메일을 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -1137,7 +1111,7 @@ class _CorporationJoinState extends State<CorporationJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 18,
                               top: 15,
                               child: Text(
                                 '인증번호',
@@ -1195,23 +1169,19 @@ class _CorporationJoinState extends State<CorporationJoin> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 12,
-                              top: 15,
-                              child: Text(
-                                '회사 인증번호를 입력해주세요',
-                                style: TextStyle(
-                                  color: const Color(0xFFB3B3B3),
-                                  fontSize: 14,
-                                  fontFamily: 'Pretendard',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.50,
-                                ),
-                              ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '회사 인증번호를 입력해주세요',
+                            hintStyle: TextStyle(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              height: 1.50,
                             ),
-                          ],
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.only(left: 12, top: 2),
+                          ),
                         ),
                       ),
                     ),
@@ -1231,10 +1201,10 @@ class _CorporationJoinState extends State<CorporationJoin> {
                         child: Stack(
                           children: [
                             Positioned(
-                              left: 20,
+                              left: 30,
                               top: 15,
                               child: Text(
-                                '   확인',
+                                '확인',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 14,
@@ -1389,20 +1359,6 @@ Widget _buildStep4(BuildContext context) {
           ),
           Positioned(
             left: 30,
-            top: 90,
-            child: Text(
-              '기업을 소개해주세요',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 13,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w500,
-                height: 1.50,
-              ),
-            ),
-          ),
-          Positioned(
-            left: 30,
             top: 120,
             child: Container(
               width: 333,
@@ -1414,48 +1370,19 @@ Widget _buildStep4(BuildContext context) {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-            ),
-          ),
-          Positioned(
-            left: 40,
-            top: 134,
-            child: Text(
-              '기업을 소개해주세요',
-              style: TextStyle(
-                color: const Color(0xFFCCCCCC),
-                fontSize: 12,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w500,
-                height: 1.50,
-              ),
-            ),
-          ),
-          Positioned(
-            left: 30,
-            top: 250,
-            child: Text(
-              '사용 목적을 선택해주세요 (중복 선택 가능)',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 13,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w500,
-                height: 1.50,
-              ),
-            ),
-          ),
-
-          Positioned(
-            left: 32,
-            top: 400,
-            child: Text(
-              '산업 분야를 입력해주세요',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 12,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w500,
-                height: 1.50,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: '기업을 소개해주세요',
+                  hintStyle: TextStyle(
+                    color: const Color(0xFFCCCCCC),
+                    fontSize: 12,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w500,
+                    height: 1.50,
+                  ),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 10, top: -7),
+                ),
               ),
             ),
           ),
@@ -1472,33 +1399,38 @@ Widget _buildStep4(BuildContext context) {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-            ),
-          ),
-          Positioned(
-            left: 60,
-            top: 444,
-            child: Text(
-              '산업 분야를 입력해주세요',
-              style: TextStyle(
-                color: const Color(0xFFB3B3B3),
-                fontSize: 12,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w500,
-                height: 1.50,
-              ),
-            ),
-          ),
-          Positioned(
-            left: 43,
-            top: 440,
-            child: Text(
-              '#',
-              style: TextStyle(
-                color: const Color(0xFFB3B3B3),
-                fontSize: 17,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w500,
-                height: 1.50,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 13, right: 5),
+                    child: Text(
+                      '#',
+                      style: TextStyle(
+                        color: const Color(0xFFB3B3B3),
+                        fontSize: 17,
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w500,
+                        height: 1.50,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: '산업 분야를 입력해주세요',
+                        hintStyle: TextStyle(
+                          color: const Color(0xFFB3B3B3),
+                          fontSize: 12,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w500,
+                          height: 1.50,
+                        ),
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(top: -9),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

@@ -191,6 +191,7 @@ class _MainmatchState extends State<Mainmatch> {
                       ),
                     ),
                   ),
+
                   IndustryDropdownOverlay(),
                   StackDropdownOverlay(),
                   ProvinceDropdown(),
