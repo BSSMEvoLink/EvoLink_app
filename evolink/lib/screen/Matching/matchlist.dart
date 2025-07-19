@@ -1,18 +1,18 @@
-import 'package:evolink/screen/community/community.dart';
 import 'package:evolink/screen/Matching/matchselect.dart';
+import 'package:evolink/screen/community/community.dart';
 import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:evolink/screen/mypage/mypage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Endmatch extends StatefulWidget {
-  const Endmatch({super.key});
+class Matchlist extends StatefulWidget {
+  const Matchlist({super.key});
 
   @override
-  State<Endmatch> createState() => _EndmatchState();
+  State<Matchlist> createState() => _MatchlistState();
 }
 
-class _EndmatchState extends State<Endmatch> {
+class _MatchlistState extends State<Matchlist> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +24,22 @@ class _EndmatchState extends State<Endmatch> {
           decoration: BoxDecoration(color: Colors.white),
           child: Stack(
             children: [
+              Positioned(
+                left: 29,
+                top: 111,
+                child: Text(
+                  '매칭내역',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -0.24,
+                  ),
+                ),
+              ),
               Positioned(
                 left: 0,
                 top: 761,
@@ -99,7 +115,6 @@ class _EndmatchState extends State<Endmatch> {
                                   ),
                                 ),
                               ),
-
                               Container(
                                 width: 24,
                                 height: 24,
@@ -151,6 +166,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '홈',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -166,6 +182,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '커뮤니티',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -181,6 +198,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '매칭',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -196,6 +214,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '마이페이지',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -211,33 +230,216 @@ class _EndmatchState extends State<Endmatch> {
                 ),
               ),
               Positioned(
-                left: 145,
-                top: 341,
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  child: SvgPicture.asset(
-                    'assets/images/check_circle.svg',
-                    width: 22,
-                    height: 22,
-                    color: const Color(0xFFFC7B03),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 56,
-                top: 461,
+                left: 29,
+                top: 157,
                 child: Text(
-                  '매칭이 완료되었습니다! 좋은 프로젝트 기대하겠습니다.',
+                  '매칭한 상대와 채팅을 통해 프로젝트를 성사시키세요',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     decoration: TextDecoration.none,
                     color: Colors.black,
-                    fontSize: 14,
+                    fontSize: 13,
                     fontFamily: 'Pretendard',
                     fontWeight: FontWeight.w600,
                     letterSpacing: -0.24,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 29,
+                top: 223,
+                child: Container(
+                  width: 335,
+                  height: 65,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        width: 1,
+                        color: const Color(0xFFFFAC1E),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 10,
+                        top: 13,
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFD9D9D9),
+                            shape: OvalBorder(),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 68,
+                        top: 24,
+                        child: Text(
+                          '이수연',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: -0.24,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 259,
+                        top: 46,
+                        child: Text(
+                          '매칭일자 07/19',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 11,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: -0.24,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 29,
+                top: 327,
+                child: Container(
+                  width: 335,
+                  height: 65,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        width: 1,
+                        color: const Color(0xFFFFAC1E),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 10,
+                        top: 13,
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFD9D9D9),
+                            shape: OvalBorder(),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 68,
+                        top: 24,
+                        child: Text(
+                          '이수연',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: -0.24,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 259,
+                        top: 46,
+                        child: Text(
+                          '매칭일자 07/19',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 11,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: -0.24,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 29,
+                top: 431,
+                child: Container(
+                  width: 335,
+                  height: 65,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        width: 1,
+                        color: const Color(0xFFFFAC1E),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 10,
+                        top: 13,
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFD9D9D9),
+                            shape: OvalBorder(),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 68,
+                        top: 24,
+                        child: Text(
+                          '이수연',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: -0.24,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 259,
+                        top: 46,
+                        child: Text(
+                          '매칭일자 07/19',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 11,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: -0.24,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

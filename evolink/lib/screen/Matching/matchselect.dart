@@ -1,18 +1,19 @@
 import 'package:evolink/screen/community/community.dart';
-import 'package:evolink/screen/Matching/matchselect.dart';
 import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:evolink/screen/mypage/mypage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:evolink/screen/Matching/mainmatch.dart';
+import 'package:evolink/screen/Matching/matchlist.dart';
 
-class Endmatch extends StatefulWidget {
-  const Endmatch({super.key});
+class Matchselect extends StatefulWidget {
+  const Matchselect({super.key});
 
   @override
-  State<Endmatch> createState() => _EndmatchState();
+  State<Matchselect> createState() => _MatchselectState();
 }
 
-class _EndmatchState extends State<Endmatch> {
+class _MatchselectState extends State<Matchselect> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +25,22 @@ class _EndmatchState extends State<Endmatch> {
           decoration: BoxDecoration(color: Colors.white),
           child: Stack(
             children: [
+              Positioned(
+                left: 29,
+                top: 139,
+                child: Text(
+                  '매칭',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -0.24,
+                  ),
+                ),
+              ),
               Positioned(
                 left: 0,
                 top: 761,
@@ -99,7 +116,6 @@ class _EndmatchState extends State<Endmatch> {
                                   ),
                                 ),
                               ),
-
                               Container(
                                 width: 24,
                                 height: 24,
@@ -151,6 +167,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '홈',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -166,6 +183,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '커뮤니티',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -181,6 +199,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '매칭',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -196,6 +215,7 @@ class _EndmatchState extends State<Endmatch> {
                         top: 38,
                         child: Text(
                           '마이페이지',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
@@ -211,13 +231,83 @@ class _EndmatchState extends State<Endmatch> {
                 ),
               ),
               Positioned(
-                left: 145,
-                top: 341,
+                left: 29,
+                top: 185,
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: '원하는 태그를 선택해 EvoLink의 ',
+                        style: TextStyle(
+                          decoration: TextDecoration.none,
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: -0.24,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '매칭 상대',
+                        style: TextStyle(
+                          decoration: TextDecoration.none,
+                          color: const Color(0xFFFC7B03),
+                          fontSize: 13,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: -0.24,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '를 만나보세요',
+                        style: TextStyle(
+                          decoration: TextDecoration.none,
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: -0.24,
+                        ),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Positioned(
+                left: 29,
+                top: 299,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mainmatch()),
+                    );
+                  },
+                  child: Container(
+                    width: 341,
+                    height: 140,
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          width: 1,
+                          color: const Color(0xFFFFAC1E),
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 59,
+                top: 344,
                 child: Container(
-                  width: 100,
-                  height: 100,
+                  width: 50,
+                  height: 50,
                   child: SvgPicture.asset(
-                    'assets/images/check_circle.svg',
+                    'assets/images/group.svg',
                     width: 22,
                     height: 22,
                     color: const Color(0xFFFC7B03),
@@ -226,18 +316,109 @@ class _EndmatchState extends State<Endmatch> {
                 ),
               ),
               Positioned(
-                left: 56,
-                top: 461,
+                left: 137,
+                top: 344,
                 child: Text(
-                  '매칭이 완료되었습니다! 좋은 프로젝트 기대하겠습니다.',
+                  '매칭하기',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     decoration: TextDecoration.none,
                     color: Colors.black,
-                    fontSize: 14,
+                    fontSize: 20,
                     fontFamily: 'Pretendard',
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                     letterSpacing: -0.24,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 137,
+                top: 380,
+                child: Text(
+                  '분야, 기술태그,지역을 기반으로 매칭을 해보세요!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color: Colors.black,
+                    fontSize: 12,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: -0.24,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 29,
+                top: 461,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Matchlist()),
+                    );
+                  },
+                  child: Container(
+                    width: 341,
+                    height: 140,
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          width: 1,
+                          color: const Color(0xFFFFAC1E),
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 137,
+                top: 500,
+                child: Text(
+                  '매칭내역',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: -0.24,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 136,
+                top: 542,
+                child: SizedBox(
+                  width: 224,
+                  child: Text(
+                    '매칭된 사람들과 함께 채팅을 통해 \n프로젝트를 진행하세요!',
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: -0.24,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 59,
+                top: 505,
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  child: SvgPicture.asset(
+                    'assets/images/chat_bubble.svg',
+                    width: 22,
+                    height: 22,
+                    color: const Color(0xFFFC7B03),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

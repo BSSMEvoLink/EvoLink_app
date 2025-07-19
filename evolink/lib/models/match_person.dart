@@ -5,6 +5,7 @@ class MatchPerson {
   final String location;
   final String name;
   final String imageUrl;
+  final String? portfolioUrl;
   final String? id;
   final String? email;
   final String? description;
@@ -17,6 +18,7 @@ class MatchPerson {
     required this.location,
     required this.name,
     required this.imageUrl,
+    this.portfolioUrl,
     this.id,
     this.email,
     this.description,
@@ -65,6 +67,7 @@ class MatchPerson {
     String? location,
     String? name,
     String? imageUrl,
+    String? portfolioUrl,
     String? id,
     String? email,
     String? description,
@@ -77,6 +80,7 @@ class MatchPerson {
       location: location ?? this.location,
       name: name ?? this.name,
       imageUrl: imageUrl ?? this.imageUrl,
+      portfolioUrl: portfolioUrl ?? this.portfolioUrl,
       id: id ?? this.id,
       email: email ?? this.email,
       description: description ?? this.description,

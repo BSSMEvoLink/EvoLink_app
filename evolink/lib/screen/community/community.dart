@@ -1,4 +1,4 @@
-import 'package:evolink/screen/Matching/mainmatch.dart';
+import 'package:evolink/screen/Matching/matchselect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:evolink/screen/community/communityadd.dart';
@@ -383,7 +383,7 @@ class _MaincommunityState extends State<Maincommunity> {
                                    Navigator.push(
                                      context,
                                      MaterialPageRoute(
-                                       builder: (context) => Mainmatch(),
+                                       builder: (context) => Matchselect(),
                                      ), // 이동할 페이지 위젯
                                    );
                                  },

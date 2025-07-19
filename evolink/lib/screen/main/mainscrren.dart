@@ -1,4 +1,4 @@
-import 'package:evolink/screen/Matching/mainmatch.dart';
+import 'package:evolink/screen/Matching/matchselect.dart';
 import 'package:evolink/screen/community/community.dart';
 import 'package:evolink/screen/mypage/mypage.dart';
 import 'package:flutter/material.dart';
@@ -322,7 +322,7 @@ class Mainscrren extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Mainmatch(),
+                                      builder: (context) => Matchselect(),
                                     ), // 이동할 페이지 위젯
                                   );
                                 },

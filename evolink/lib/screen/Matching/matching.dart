@@ -6,6 +6,7 @@ import 'package:evolink/screen/Matching/endmatch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:evolink/models/match_person.dart';
+import 'package:evolink/screen/Matching/profilematch.dart';
 
 class Matching extends StatefulWidget {
   final String industry;
@@ -34,6 +35,7 @@ class _MatchingState extends State<Matching> {
       location: 'Seoul',
       name: '김에보',
       imageUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
+      portfolioUrl: 'https://portfolio.com/kim',
     ),
     MatchPerson(
       industry: 'IT',
@@ -42,6 +44,7 @@ class _MatchingState extends State<Matching> {
       location: 'Busan',
       name: '이디자인',
       imageUrl: 'https://randomuser.me/api/portraits/women/2.jpg',
+      portfolioUrl: 'https://portfolio.com/lee',
     ),
     MatchPerson(
       industry: 'IT',
@@ -83,6 +86,14 @@ class _MatchingState extends State<Matching> {
       location: 'Daegu',
       name: '최선생',
       imageUrl: 'https://randomuser.me/api/portraits/women/7.jpg',
+    ),
+    MatchPerson(
+      industry: 'IT/소프트웨어',
+      stack: '디자이너',
+      userType: '프리랜서',
+      location: '부산광역시',
+      name: '이부산디자',
+      imageUrl: 'https://randomuser.me/api/portraits/women/8.jpg',
     ),
   ];
 
@@ -419,37 +430,51 @@ class _MatchingState extends State<Matching> {
                       Positioned(
                         left: 268,
                         top: 426 + i * 271,
-                        child: Container(
-                          width: 85,
-                          height: 33,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: ShapeDecoration(
-                            shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                width: 1,
-                                color: const Color(0xFFFC7B03),
-                              ),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                          ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                left: 13,
-                                top: 7,
-                                child: Text(
-                                  '프로필 보기',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 13,
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.50,
-                                    decoration: TextDecoration.none,
-                                  ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Profilematch(
+                                  name: filtered[i].name,
+                                  stack: filtered[i].stack,
+                                  portfolioUrl: filtered[i].portfolioUrl,
                                 ),
                               ),
-                            ],
+                            );
+                          },
+                          child: Container(
+                            width: 85,
+                            height: 33,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: ShapeDecoration(
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  width: 1,
+                                  color: const Color(0xFFFC7B03),
+                                ),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  left: 13,
+                                  top: 7,
+                                  child: Text(
+                                    '프로필 보기',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13,
+                                      fontFamily: 'Pretendard',
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.50,
+                                      decoration: TextDecoration.none,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
