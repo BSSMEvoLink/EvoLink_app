@@ -1,247 +1,90 @@
-import 'package:evolink/screen/%20community/community.dart';
 import 'package:evolink/screen/Matching/mainmatch.dart';
+import 'package:evolink/screen/community/community.dart';
 import 'package:evolink/screen/mypage/mypage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'dart:io';
+// CommunityPost와 communityPosts는 community.dart에서 import해서 사용
 
-class Mainscrren extends StatefulWidget {
-  const Mainscrren({super.key});
-
-  @override
-  State<Mainscrren> createState() => _MainscrrenState();
-}
-
-class _MainscrrenState extends State<Mainscrren> {
+class Mainscrren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        width: 393,
-        height: 852,
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(color: Colors.white),
-        child: Stack(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Positioned(
-              left: 20,
-              top: 50,
-              child: Container(
-                width: 100,
-                height: 100,
-                child: Image.asset(
-                  'assets/images/Evolinklogo.png',
-                  fit: BoxFit.contain,
+            const SizedBox(height: 30),
+            // 상단 로고/알림
+            Row(
+              children: [
+                const SizedBox(width: 20),
+                Container(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset(
+                    'assets/images/Evolinklogo.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 300,
-              top: 80,
-              child: GestureDetector(
-                child: SvgPicture.asset(
+                const Spacer(),
+                SvgPicture.asset(
                   'assets/images/notifications.svg',
                   width: 30,
                   height: 30,
                   color: const Color(0xFFFC7B03),
                   fit: BoxFit.cover,
                 ),
-              ),
-            ),
-            Positioned(
-              left: 340,
-              top: 79,
-              child: GestureDetector(
-                child: SvgPicture.asset(
+                const SizedBox(width: 10),
+                SvgPicture.asset(
                   'assets/images/lists.svg',
                   width: 30,
                   height: 30,
                   color: const Color(0xFFFC7B03),
                   fit: BoxFit.cover,
                 ),
+                const SizedBox(width: 20),
+              ],
+            ),
+            const SizedBox(height: 10),
+            // 인사말
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '안녕하세요 김에보님',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: -0.24,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '오늘도 EvoLink와 함께 협업해보세요!',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: -0.24,
+                    ),
+                  ),
+                ],
               ),
             ),
-            Positioned(
-              left: 0,
-              top: 818,
-              child: Container(
-                width: 390,
-                height: 34,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: 128,
-                      top: 21,
-                      child: Container(
-                        width: 134,
-                        height: 5,
-                        decoration: ShapeDecoration(
-                          color: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              left: 30,
-              top: 133,
-              child: Container(
-                width: 333,
-                height: 78,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(color: Colors.white),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: 0,
-                      top: 7,
-                      child: Text(
-                        '안녕하세요 김에보님',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 24,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 43,
-                      child: SizedBox(
-                        width: 221,
-                        child: Text(
-                          '오늘도 EvoLink와 함께 협업해보세요!',
-                          style: TextStyle(
-                            decoration: TextDecoration.none,
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: -0.24,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 253,
-                      top: 7,
-                      child: Container(
-                        width: 77,
-                        height: 36,
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFFFFEFE),
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              width: 1.50,
-                              color: const Color(0xFFFC7B03),
-                            ),
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 269,
-                      top: 17,
-                      child: Text(
-                        '프리랜서',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              left: 18,
-              top: 228,
-              child: Container(
-                width: 333,
-                height: 92,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(color: Colors.white),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: 34,
-                      top: 34,
-                      child: Text(
-                        '(주)하링에서 포트폴리오에 관심을 눌렀습니다.',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 35,
-                      top: 71,
-                      child: Text(
-                        '읽지 않은 메세지 3건이 존재합니다.',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 8,
-                      top: 31,
-                      child: GestureDetector(
-                        child: SvgPicture.asset(
-                          'assets/images/keyboard_arrow_down.svg',
-                          width: 24,
-                          height: 24,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 9,
-                      top: 65,
-                      child: GestureDetector(
-                        child: SvgPicture.asset(
-                          'assets/images/notifications.svg',
-                          width: 22,
-                          height: 22,
-                          color: const Color(0xFFFC7B03),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              left: 30,
-              top: 228,
+            const SizedBox(height: 20),
+            // 오늘의 알림
+            Padding(
+              padding: const EdgeInsets.only(left: 30, bottom: 8),
               child: Text(
                 '오늘의 알림',
                 style: TextStyle(
-                  decoration: TextDecoration.none,
                   color: Colors.black,
                   fontSize: 15,
                   fontFamily: 'Pretendard',
@@ -250,373 +93,33 @@ class _MainscrrenState extends State<Mainscrren> {
                 ),
               ),
             ),
-            Positioned(
-              left: 30,
-              top: 355,
+            // (주)하링에서 포트폴리오에 관심을 눌렀습니다.
+            Padding(
+              padding: const EdgeInsets.only(left: 30, right: 18),
               child: Container(
                 width: 333,
-                height: 239,
+                height: 60,
                 clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(),
-                child: Stack(
+                decoration: BoxDecoration(color: Colors.white),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Positioned(
-                      left: 0,
-                      top: 0,
+                    SvgPicture.asset(
+                      'assets/images/notifications.svg',
+                      width: 22,
+                      height: 22,
+                      color: Color(0xFFFC7B03),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
                       child: Text(
-                        '김에보님 이런 프로젝트는 어떠세요?',
+                        '(주)하링에서 포트폴리오에 관심을 눌렀습니다.',
                         style: TextStyle(
-                          decoration: TextDecoration.none,
                           color: Colors.black,
-                          fontSize: 15,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 43,
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage("https://placehold.co/100x100"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 150,
-                      child: SizedBox(
-                        width: 102,
-                        child: Text(
-                          '만두는갈비만두새우만두중\n토론하실분연락주세요',
-                          style: TextStyle(
-                            decoration: TextDecoration.none,
-                            color: Colors.black,
-                            fontSize: 10,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: -0.24,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 21,
-                      top: 186,
-                      child: Text(
-                        '3',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
+                          fontSize: 12,
                           fontFamily: 'Pretendard',
                           fontWeight: FontWeight.w500,
                           letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: -1,
-                      top: 183,
-                      child: GestureDetector(
-                        child: SvgPicture.asset(
-                          'assets/images/favorite.svg',
-                          width: 20,
-                          height: 20,
-                          color: const Color(0xFFFC7B03),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 43,
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/images.jpeg',
-                            ), // ← 로컬 이미지 경로
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 150,
-                      child: SizedBox(
-                        width: 102,
-                        child: Text(
-                          '만두는갈비만두새우만두중\n토론하실분연락주세요',
-                          style: TextStyle(
-                            decoration: TextDecoration.none,
-                            color: Colors.black,
-                            fontSize: 10,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: -0.24,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 17,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 212,
-                      child: Container(
-                        width: 15,
-                        height: 15,
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 17,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 116,
-                      top: 43,
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/images.jpeg',
-                            ), // ← 로컬 이미지 경로
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    Positioned(
-                      left: 116,
-                      top: 150,
-                      child: SizedBox(
-                        width: 102,
-                        child: Text(
-                          '만두는갈비만두새우만두중\n토론하실분연락주세요',
-                          style: TextStyle(
-                            decoration: TextDecoration.none,
-                            color: Colors.black,
-                            fontSize: 10,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: -0.24,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 138,
-                      top: 186,
-                      child: Text(
-                        '3',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 133,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 116,
-                      top: 212,
-                      child: Container(
-                        width: 15,
-                        height: 15,
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 133,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 116,
-                      top: 184,
-                      child: GestureDetector(
-                        child: SvgPicture.asset(
-                          'assets/images/favorite.svg',
-                          width: 20,
-                          height: 20,
-                          color: const Color(0xFFFC7B03),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 232,
-                      top: 43,
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/images.jpeg',
-                            ), // ← 로컬 이미지 경로
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 232,
-                      top: 150,
-                      child: SizedBox(
-                        width: 102,
-                        child: Text(
-                          '만두는갈비만두새우만두중\n토론하실분연락주세요',
-                          style: TextStyle(
-                            decoration: TextDecoration.none,
-                            color: Colors.black,
-                            fontSize: 10,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: -0.24,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 253,
-                      top: 186,
-                      child: Text(
-                        '3',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 249,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 232,
-                      top: 212,
-                      child: Container(
-                        width: 15,
-                        height: 15,
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFD9D9D9),
-                          shape: OvalBorder(),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 249,
-                      top: 214,
-                      child: Text(
-                        '만두는갈비만두',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 10,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 232,
-                      top: 184,
-                      child: GestureDetector(
-                        child: SvgPicture.asset(
-                          'assets/images/favorite.svg',
-                          width: 20,
-                          height: 20,
-                          color: const Color(0xFFFC7B03),
-                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -624,160 +127,121 @@ class _MainscrrenState extends State<Mainscrren> {
                 ),
               ),
             ),
-            Positioned(
-              left: 30,
-              top: 620,
-              child: Container(
-                width: 333,
-                height: 124,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: 0,
-                      top: 0,
-                      child: Text(
-                        '김에보님의 협업 일정입니다',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 71,
-                      top: 41,
-                      child: Text(
-                        '2025.10.02 ~ 2027. 09. 10',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 237,
-                      top: 38,
-                      child: Text(
-                        'D - 600',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 6,
-                      top: 41,
-                      child: Text(
-                        '(주)하링',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 65,
-                      child: Container(
-                        width: 333,
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              width: 2,
-                              strokeAlign: BorderSide.strokeAlignCenter,
-                              color: const Color(0xFFB3B3B3),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 71,
-                      top: 91,
-                      child: Text(
-                        '2025.10.02 ~ 2027. 09. 10',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 237,
-                      top: 88,
-                      child: Text(
-                        'D - 600',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 6,
-                      top: 91,
-                      child: Text(
-                        '(주)하링',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 115,
-                      child: Container(
-                        width: 333,
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              width: 2,
-                              strokeAlign: BorderSide.strokeAlignCenter,
-                              color: const Color(0xFFB3B3B3),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+            const SizedBox(height: 20),
+            // "김에보님 이런 프로젝트는 어떠세요?"
+            Padding(
+              padding: const EdgeInsets.only(left: 30, bottom: 8),
+              child: Text(
+                '김에보님 이런 프로젝트는 어떠세요?',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontFamily: 'Pretendard',
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -0.24,
                 ),
               ),
             ),
+            const SizedBox(height: 30),
+            // 커뮤니티 카드 리스트
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children:
+                    communityPosts
+                        .take(2)
+                        .map(
+                          (post) => Container(
+                            margin: const EdgeInsets.only(bottom: 20),
+                            padding: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: const Color(0xFFFFAC1E),
+                                width: 1,
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  post.tag,
+                                  style: const TextStyle(
+                                    color: Color(0xFFFC7B03),
+                                    fontSize: 12,
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  post.content,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontFamily: 'Pretendard',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 24,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.grey[300],
+                                      ),
+                                      child:
+                                          post.authorImagePath != null
+                                              ? ClipOval(
+                                                child: Image.file(
+                                                  File(post.authorImagePath!),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              )
+                                              : Icon(
+                                                Icons.person,
+                                                size: 16,
+                                                color: Colors.grey[600],
+                                              ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      post.authorName,
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    Text(
+                                      '${post.createdAt.month}/${post.createdAt.day}',
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                        fontFamily: 'Pretendard',
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                        .toList(),
+              ),
+            ),
+            Spacer(),
+            // 네브바 (SVG + 텍스트 + 페이지 이동)
             Positioned(
               left: 0,
-              top: 761,
+              top: 651,
               child: Container(
                 width: 393,
                 height: 57,
@@ -812,6 +276,14 @@ class _MainscrrenState extends State<Mainscrren> {
                               width: 30,
                               height: 30,
                               child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Mainscrren(),
+                                    ), // 이동할 페이지 위젯
+                                  );
+                                },
                                 child: SvgPicture.asset(
                                   'assets/images/home.svg',
                                   width: 22,
@@ -842,7 +314,6 @@ class _MainscrrenState extends State<Mainscrren> {
                                 ),
                               ),
                             ),
-
                             Container(
                               width: 24,
                               height: 24,
@@ -894,8 +365,8 @@ class _MainscrrenState extends State<Mainscrren> {
                       top: 38,
                       child: Text(
                         '홈',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 10,
                           fontFamily: 'Pretendard',
@@ -909,8 +380,8 @@ class _MainscrrenState extends State<Mainscrren> {
                       top: 38,
                       child: Text(
                         '커뮤니티',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 10,
                           fontFamily: 'Pretendard',
@@ -924,8 +395,8 @@ class _MainscrrenState extends State<Mainscrren> {
                       top: 38,
                       child: Text(
                         '매칭',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 10,
                           fontFamily: 'Pretendard',
@@ -939,8 +410,8 @@ class _MainscrrenState extends State<Mainscrren> {
                       top: 38,
                       child: Text(
                         '마이페이지',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 10,
                           fontFamily: 'Pretendard',

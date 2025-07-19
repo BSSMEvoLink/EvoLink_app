@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future<Map<String, dynamic>> register(String email, String password, String name, String userType) async {
+  final response = await http.post(
+    Uri.parse('http://localhost:8080/api/auth/register'),
+    headers: {'Content-Type': 'application/json'},
+    body: jsonEncode({
+      'email': email,
+      'password': password,
+      'name': name,
+      'userType': userType,
+    }),
+  );
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    throw Exception('회원가입 실패:  ${response.body}');
+  }
+}
 
 class FreelancerJoin extends StatefulWidget {
   const FreelancerJoin({super.key});

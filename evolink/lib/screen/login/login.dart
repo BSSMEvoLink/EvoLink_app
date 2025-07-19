@@ -1,6 +1,21 @@
 import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:evolink/screen/user/mainlogin.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future<Map<String, dynamic>> login(String email, String password) async {
+  final response = await http.post(
+    Uri.parse('http://localhost:8080/api/auth/login'),
+    headers: {'Content-Type': 'application/json'},
+    body: jsonEncode({'email': email, 'password': password}),
+  );
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    throw Exception('로그인 실패:  ${response.body}');
+  }
+}
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -82,9 +97,7 @@ class _LoginState extends State<Login> {
                               height: 1.50,
                             ),
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 15,
-                            ),
+                            contentPadding: EdgeInsets.only(left: 15, top: 10, bottom: 8), // hint 위치 조절
                           ),
                         ),
                       ),
@@ -139,9 +152,7 @@ class _LoginState extends State<Login> {
                               height: 1.50,
                             ),
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 15,
-                            ),
+                            contentPadding: EdgeInsets.only(left: 15, top: 14, bottom: 8), // hint 위치 조절
                           ),
                         ),
                       ),
@@ -158,7 +169,7 @@ class _LoginState extends State<Login> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Mainscrren(),
+                          builder: (context) => Mainscrren(),
                         ),
                       );
                     },

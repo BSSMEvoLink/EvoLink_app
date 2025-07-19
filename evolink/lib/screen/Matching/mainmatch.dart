@@ -1,4 +1,4 @@
-import 'package:evolink/screen/%20community/community.dart';
+import 'package:evolink/screen/community/community.dart';
 import 'package:evolink/screen/Matching/matching.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,6 +6,17 @@ import 'package:evolink/screen/Matching/mainmatch.dart';
 import 'package:evolink/screen/main/mainscrren.dart';
 import 'package:evolink/screen/mypage/mypage.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future<List<dynamic>> fetchMatchList() async {
+  final response = await http.get(Uri.parse('http://localhost:8080/api/match'));
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    throw Exception('매칭 목록 불러오기 실패');
+  }
+}
 
 class Mainmatch extends StatefulWidget {
   const Mainmatch({super.key});
@@ -15,6 +26,11 @@ class Mainmatch extends StatefulWidget {
 }
 
 class _MainmatchState extends State<Mainmatch> {
+  String selectedIndustry = '디자인';
+  String selectedStack = '디자이너';
+  String selectedUserType = '프리랜서';
+  String selectedProvince = '부산광역시';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,10 +208,22 @@ class _MainmatchState extends State<Mainmatch> {
                     ),
                   ),
 
-                  IndustryDropdownOverlay(),
-                  StackDropdownOverlay(),
-                  ProvinceDropdown(),
-                  UserTypeDropdownPositioned(),
+                  IndustryDropdownOverlay(
+                    selected: selectedIndustry,
+                    onChanged: (val) => setState(() => selectedIndustry = val),
+                  ),
+                  StackDropdownOverlay(
+                    selected: selectedStack,
+                    onChanged: (val) => setState(() => selectedStack = val),
+                  ),
+                  ProvinceDropdown(
+                    selected: selectedProvince,
+                    onChanged: (val) => setState(() => selectedProvince = val),
+                  ),
+                  UserTypeDropdownPositioned(
+                    selected: selectedUserType,
+                    onChanged: (val) => setState(() => selectedUserType = val),
+                  ),
 
                   Positioned(
                     left: 156,
@@ -223,8 +251,12 @@ class _MainmatchState extends State<Mainmatch> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder:
-                                        (context) => Matching(), // ← 이동할 페이지
+                                    builder: (context) => Matching(
+                                      industry: selectedIndustry,
+                                      stack: selectedStack,
+                                      userType: selectedUserType,
+                                      location: selectedProvince,
+                                    ),
                                   ),
                                 );
                               },
@@ -437,7 +469,9 @@ class _MainmatchState extends State<Mainmatch> {
 }
 
 class IndustryDropdownOverlay extends StatefulWidget {
-  const IndustryDropdownOverlay({super.key});
+  final String selected;
+  final ValueChanged<String> onChanged;
+  const IndustryDropdownOverlay({super.key, required this.selected, required this.onChanged});
 
   @override
   State<IndustryDropdownOverlay> createState() =>
@@ -445,7 +479,6 @@ class IndustryDropdownOverlay extends StatefulWidget {
 }
 
 class _IndustryDropdownOverlayState extends State<IndustryDropdownOverlay> {
-  String selectedIndustry = '디자인, 그래픽 디자인';
   final LayerLink _layerLink = LayerLink();
   OverlayEntry? _overlayEntry;
 
@@ -503,9 +536,7 @@ class _IndustryDropdownOverlayState extends State<IndustryDropdownOverlay> {
                       industries.map((industry) {
                         return GestureDetector(
                           onTap: () {
-                            setState(() {
-                              selectedIndustry = industry;
-                            });
+                            widget.onChanged(industry);
                             _removeOverlay();
                           },
                           child: Container(
@@ -561,7 +592,7 @@ class _IndustryDropdownOverlayState extends State<IndustryDropdownOverlay> {
               left: 12,
               top: 12,
               child: Text(
-                selectedIndustry,
+                widget.selected,
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 12,
@@ -591,14 +622,15 @@ class _IndustryDropdownOverlayState extends State<IndustryDropdownOverlay> {
 }
 
 class StackDropdownOverlay extends StatefulWidget {
-  const StackDropdownOverlay({super.key});
+  final String selected;
+  final ValueChanged<String> onChanged;
+  const StackDropdownOverlay({super.key, required this.selected, required this.onChanged});
 
   @override
   State<StackDropdownOverlay> createState() => _StackDropdownOverlayState();
 }
 
 class _StackDropdownOverlayState extends State<StackDropdownOverlay> {
-  String selectedItem = '디자이너';
   final LayerLink _layerLink = LayerLink();
   OverlayEntry? _overlayEntry;
 
@@ -653,9 +685,7 @@ class _StackDropdownOverlayState extends State<StackDropdownOverlay> {
                       items.map((item) {
                         return GestureDetector(
                           onTap: () {
-                            setState(() {
-                              selectedItem = item;
-                            });
+                            widget.onChanged(item);
                             _removeOverlay();
                           },
                           child: Container(
@@ -711,7 +741,7 @@ class _StackDropdownOverlayState extends State<StackDropdownOverlay> {
               left: 12,
               top: 12,
               child: Text(
-                selectedItem,
+                widget.selected,
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 12,
@@ -741,14 +771,15 @@ class _StackDropdownOverlayState extends State<StackDropdownOverlay> {
 }
 
 class ProvinceDropdown extends StatefulWidget {
-  const ProvinceDropdown({super.key});
+  final String selected;
+  final ValueChanged<String> onChanged;
+  const ProvinceDropdown({super.key, required this.selected, required this.onChanged});
 
   @override
   State<ProvinceDropdown> createState() => _ProvinceDropdownState();
 }
 
 class _ProvinceDropdownState extends State<ProvinceDropdown> {
-  String selectedProvince = '부산광역시';
   String searchKeyword = '';
   bool showSearch = false;
 
@@ -801,7 +832,7 @@ class _ProvinceDropdownState extends State<ProvinceDropdown> {
           left: 42,
           top: 529,
           child: Text(
-            selectedProvince,
+            widget.selected,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 12,
@@ -884,11 +915,9 @@ class _ProvinceDropdownState extends State<ProvinceDropdown> {
                     filteredList.map((item) {
                       return GestureDetector(
                         onTap: () {
-                          setState(() {
-                            selectedProvince = item;
-                            searchKeyword = '';
-                            showSearch = false;
-                          });
+                          widget.onChanged(item);
+                          searchKeyword = '';
+                          showSearch = false;
                         },
                         child: Container(
                           width: double.infinity,
@@ -917,7 +946,9 @@ class _ProvinceDropdownState extends State<ProvinceDropdown> {
 }
 
 class UserTypeDropdownPositioned extends StatefulWidget {
-  const UserTypeDropdownPositioned({super.key});
+  final String selected;
+  final ValueChanged<String> onChanged;
+  const UserTypeDropdownPositioned({super.key, required this.selected, required this.onChanged});
 
   @override
   State<UserTypeDropdownPositioned> createState() =>
@@ -926,7 +957,6 @@ class UserTypeDropdownPositioned extends StatefulWidget {
 
 class _UserTypeDropdownPositionedState
     extends State<UserTypeDropdownPositioned> {
-  String selectedUserType = '프리랜서';
   bool showDropdown = false;
 
   final List<String> userTypes = ['프리랜서', '기업', '지자체'];
@@ -957,7 +987,7 @@ class _UserTypeDropdownPositionedState
           left: 43,
           top: 409,
           child: Text(
-            selectedUserType,
+            widget.selected,
             style: TextStyle(
               color: Colors.black,
               fontSize: 12,
@@ -1005,10 +1035,8 @@ class _UserTypeDropdownPositionedState
                     userTypes.map((type) {
                       return GestureDetector(
                         onTap: () {
-                          setState(() {
-                            selectedUserType = type;
-                            showDropdown = false;
-                          });
+                          widget.onChanged(type);
+                          showDropdown = false;
                         },
                         child: Container(
                           width: double.infinity,
