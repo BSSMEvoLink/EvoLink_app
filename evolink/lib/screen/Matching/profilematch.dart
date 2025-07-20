@@ -9,7 +9,12 @@ class Profilematch extends StatefulWidget {
   final String name;
   final String stack;
   final String? portfolioUrl;
-  const Profilematch({super.key, required this.name, required this.stack, this.portfolioUrl});
+  const Profilematch({
+    super.key,
+    required this.name,
+    required this.stack,
+    this.portfolioUrl,
+  });
 
   @override
   State<Profilematch> createState() => _ProfilematchState();
@@ -149,7 +154,7 @@ class _ProfilematchState extends State<Profilematch> {
                 left: 30,
                 top: 394,
                 child: Text(
-                  '기술 태그',
+                  '포트폴리오',
                   style: TextStyle(
                     decoration: TextDecoration.none,
                     color: Colors.black,
@@ -176,36 +181,26 @@ class _ProfilematchState extends State<Profilematch> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 42,
-                top: 452,
-                child: Text(
-                  '#',
-                  style: TextStyle(
-                    decoration: TextDecoration.none,
-                    color: const Color(0xFFB3B3B3),
-                    fontSize: 17,
-                    fontFamily: 'Pretendard',
-                    fontWeight: FontWeight.w500,
-                    height: 1.50,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 62,
-                top: 457,
-                child: Text(
-                  '기술 스택을 입력해주세요',
-                  style: TextStyle(
-                    decoration: TextDecoration.none,
-                    color: const Color(0xFFB3B3B3),
-                    fontSize: 10,
-                    fontFamily: 'Pretendard',
-                    fontWeight: FontWeight.w500,
-                    height: 1.50,
-                  ),
+                  child:
+                      widget.portfolioUrl != null &&
+                              widget.portfolioUrl!.isNotEmpty
+                          ? Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 20),
+                              child: Text(
+                                widget.portfolioUrl!,
+                                style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          )
+                          : null,
                 ),
               ),
               Positioned(
@@ -438,7 +433,7 @@ class _ProfilematchState extends State<Profilematch> {
                 left: 191,
                 top: 166,
                 child: Text(
-                  '저는 사실 임베디드과이긴한데\n앱개발을 하고있어요 \n저는 이런거 진짜 노잼이에요 \n그만하고 싶고토하고싶어요',
+                  '안녕하세요 저는 부산에서 \n디자인을 공부하는 사람입니다.\n저랑 같이 디자인해요',
                   style: TextStyle(
                     decoration: TextDecoration.none,
                     color: Colors.black,
@@ -449,31 +444,6 @@ class _ProfilematchState extends State<Profilematch> {
                   ),
                 ),
               ),
-              // 포트폴리오 링크 (있을 때만)
-              if (widget.portfolioUrl != null && widget.portfolioUrl!.isNotEmpty)
-                Positioned(
-                  left: 31,
-                  top: 400,
-                  child: Row(
-                    children: [
-                      Icon(Icons.link, color: Color(0xFFFC7B03), size: 18),
-                      const SizedBox(width: 6),
-                      TextButton(
-                        onPressed: () {
-                          // 실제 앱에서는 url_launcher 등으로 링크 열기 구현 가능
-                        },
-                        child: Text(
-                          widget.portfolioUrl!,
-                          style: TextStyle(
-                            color: Color(0xFFFC7B03),
-                            fontSize: 13,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
             ],
           ),
         ),

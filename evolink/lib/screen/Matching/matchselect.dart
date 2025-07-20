@@ -6,8 +6,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:evolink/screen/Matching/mainmatch.dart';
 import 'package:evolink/screen/Matching/matchlist.dart';
 
+// 전역 매칭 리스트 (다른 파일에서 import로 접근 가능)
+List<Map<String, dynamic>> matchedUsers = [];
+
 class Matchselect extends StatefulWidget {
   const Matchselect({super.key});
+
+  // 매칭일자 static 변수 선언
+  static String matchDate = '';
 
   @override
   State<Matchselect> createState() => _MatchselectState();
@@ -279,6 +285,15 @@ class _MatchselectState extends State<Matchselect> {
                 top: 299,
                 child: GestureDetector(
                   onTap: () {
+                    // 오늘 날짜로 matchDate 세팅
+                    final now = DateTime.now();
+                    Matchselect.matchDate =
+                        '${now.month.toString().padLeft(2, '0')}/${now.day.toString().padLeft(2, '0')}';
+                    // 매칭한 사람 이름과 날짜 추가
+                    matchedUsers.add({
+                      'name': '이부산디자', // 실제 선택된 매칭 대상 이름으로 교체 필요
+                      'date': now,
+                    });
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Mainmatch()),

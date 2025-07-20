@@ -4,25 +4,43 @@ import 'package:evolink/screen/mypage/mypage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:io';
+import 'package:evolink/screen/login/login.dart';
 // CommunityPost와 communityPosts는 community.dart에서 import해서 사용
 
 class Mainscrren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // demoinging@gmail.com으로 로그인한 경우에만 본문 노출
+    if (LoginSession.currentUserEmail != 'demoinging@gmail.com') {
+      return Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: Text(
+            '이 계정으로만 접근 가능합니다',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      );
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(height: 10),
             // 상단 로고/알림
             Row(
               children: [
                 const SizedBox(width: 20),
                 Container(
-                  width: 100,
-                  height: 100,
+                  width: 60, // 로고 더 크게
+                  height: 60, // 로고 더 크게
                   child: Image.asset(
                     'assets/images/Evolinklogo.png',
                     fit: BoxFit.contain,
@@ -31,16 +49,16 @@ class Mainscrren extends StatelessWidget {
                 const Spacer(),
                 SvgPicture.asset(
                   'assets/images/notifications.svg',
-                  width: 30,
-                  height: 30,
+                  width: 26, // 26으로 통일
+                  height: 26, // 26으로 통일
                   color: const Color(0xFFFC7B03),
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(width: 10),
                 SvgPicture.asset(
                   'assets/images/lists.svg',
-                  width: 30,
-                  height: 30,
+                  width: 26, // 26으로 통일
+                  height: 26, // 26으로 통일
                   color: const Color(0xFFFC7B03),
                   fit: BoxFit.cover,
                 ),

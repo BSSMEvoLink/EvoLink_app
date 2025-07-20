@@ -17,6 +17,10 @@ Future<Map<String, dynamic>> login(String email, String password) async {
   }
 }
 
+class LoginSession {
+  static String? currentUserEmail;
+}
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -25,10 +29,33 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _tryLogin() {
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+    if (email == 'demoinging@gmail.com' && password == '1234') {
+      LoginSession.currentUserEmail = email;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Mainscrren()),
+      );
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('로그인 실패'),
+          content: Text('이메일 또는 비밀번호가 올바르지 않습니다.'),
+          actions: [TextButton(onPressed: () => Navigator.pop(context), child: Text('확인'))],
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
-      // 🔸 반드시 필요함!
       child: Column(
         children: [
           Container(
@@ -50,7 +77,6 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-
                 // 이메일 입력
                 Positioned(
                   left: 34,
@@ -80,6 +106,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                         child: TextField(
+                          controller: _emailController,
                           style: const TextStyle(
                             fontSize: 14,
                             color: Colors.black,
@@ -97,14 +124,13 @@ class _LoginState extends State<Login> {
                               height: 1.50,
                             ),
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.only(left: 15, top: 10, bottom: 8), // hint 위치 조절
+                            contentPadding: EdgeInsets.only(left: 15, top: 10, bottom: 8),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-
                 // 비밀번호 입력
                 Positioned(
                   left: 34,
@@ -134,6 +160,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                         child: TextField(
+                          controller: _passwordController,
                           obscureText: true,
                           style: const TextStyle(
                             fontSize: 14,
@@ -152,27 +179,19 @@ class _LoginState extends State<Login> {
                               height: 1.50,
                             ),
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.only(left: 15, top: 14, bottom: 8), // hint 위치 조절
+                            contentPadding: EdgeInsets.only(left: 15, top: 14, bottom: 8),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-
                 // 로그인 버튼
                 Positioned(
                   left: 34,
                   top: 647,
                   child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Mainscrren(),
-                        ),
-                      );
-                    },
+                    onTap: _tryLogin,
                     child: Container(
                       width: 328,
                       height: 50,
@@ -198,7 +217,6 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-
                 // 회원가입 안내
                 const Positioned(
                   left: 102,
@@ -219,7 +237,6 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-
                 // 회원가입 버튼
                 Positioned(
                   left: 225,

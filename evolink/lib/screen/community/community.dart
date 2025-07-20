@@ -28,16 +28,16 @@ class CommunityPost {
 // 커뮤니티 글 전역 리스트
 List<CommunityPost> communityPosts = [
   CommunityPost(
-    tag: '#프론트엔드 #디자인',
-    content: '프로젝트 협업 파트너를 찾습니다. React와 Figma 경험자 우대',
-    authorName: '김에보',
-    authorImagePath: null,
+    tag: '#디자인 #협업',
+    content: '부산에서 디자인 프리랜서 구합니다! 포트폴리오 필수.',
+    authorName: '이부산디자',
+    createdAt: DateTime(2024, 7, 20),
   ),
   CommunityPost(
-    tag: '#백엔드 #Spring',
-    content: 'Spring Boot 개발자 모집합니다. 3년 이상 경력자',
-    authorName: '이개발',
-    authorImagePath: null,
+    tag: '#개발자 #프로젝트',
+    content: '서울에서 앱 개발자(Flutter) 구인합니다. 장기 프로젝트.',
+    authorName: '김서울개발',
+    createdAt: DateTime(2024, 7, 19),
   ),
 ];
 
